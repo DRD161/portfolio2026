@@ -1,0 +1,181 @@
+---
+import barcode from '../assets/barcode.svg';
+---
+
+<header
+  class="fixed top-0 inset-x-0 z-50 h-8 bg-(--color-base-200) border-b border-(--color-white-muted) flex items-stretch justify-between px-12 max-lg:px-4"
+>
+  <!-- Left: barcode + code -->
+  <div class="flex items-center gap-4 font-mono text-xs">
+    <!-- Hamburger — mobile only -->
+    <button
+      id="nav-toggle"
+      class="lg:hidden flex items-center justify-center w-8 h-full text-(--color-base-content)"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+      aria-controls="mobile-nav"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h8m-8 6h16"></path>
+      </svg>
+    </button>
+
+    <img src={barcode.src} width="71" height="14" alt="barcode" />
+    <span class="text-base-content/60">×</span>
+    <span class="tracking-wide text-base-content/60">DD0623</span>
+  </div>
+
+  <!-- Right: desktop nav -->
+  <div class="hidden lg:flex items-center gap-5">
+    <div class="flex items-center gap-3">
+      <div class="w-1.5 h-1.5 rounded-full bg-(--color-primary) animate-pulse">
+      </div>
+      <span
+        class="uppercase font-mono text-xs tracking-wide text-base-content/60"
+        >Online</span
+      >
+    </div>
+
+    <nav
+      class="flex items-stretch h-full border-l border-(--color-white-muted)"
+    >
+      <!-- Arrow icon -->
+      <div class="flex items-center px-4 border-r border-(--color-white-muted)">
+        <svg
+          class="fill-(--color-primary) w-3"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 -960 960 960"
+        >
+          <path
+            d="M440-80v-647L256-544l-56-56 280-280 280 280-56 57-184-184v647h-80Z"
+          ></path>
+        </svg>
+      </div>
+      <ul class="flex items-center gap-7 pl-6 font-mono text-xs tracking-tight">
+        <li>
+          <a
+            href="#about"
+            class="uppercase text-(--color-neutral-content) hover:text-(--color-base-content) transition-colors"
+            >About</a
+          >
+        </li>
+        <li>
+          <a
+            href="#experience"
+            class="uppercase text-(--color-neutral-content) hover:text-(--color-base-content) transition-colors"
+            >Experience</a
+          >
+        </li>
+        <li>
+          <a
+            href="#resume"
+            class="uppercase text-(--color-neutral-content) hover:text-(--color-base-content) transition-colors"
+            >Résumé</a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="lg:hidden flex">
+    <div class="flex items-center gap-3 mr-4">
+      <div class="w-1.5 h-1.5 rounded-full bg-(--color-primary) animate-pulse">
+      </div>
+      <span
+        class="uppercase font-mono text-xs tracking-wide text-base-content/60"
+        >Online</span
+      >
+    </div>
+    <!-- Mobile arrow indicator -->
+    <div class="flex items-center pl-4 border-l border-(--color-white-muted)">
+      <svg
+        class="fill-(--color-primary) w-3"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 -960 960 960"
+      >
+        <path
+          d="M440-80v-647L256-544l-56-56 280-280 280 280-56 57-184-184v647h-80Z"
+        ></path>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile nav drawer -->
+<nav
+  id="mobile-nav"
+  class="lg:hidden fixed top-8 inset-x-0 z-40 bg-(--color-base-200) border-b border-(--color-white-muted) overflow-hidden max-h-0 transition-[max-height] duration-300 ease-in-out"
+  aria-hidden="true"
+>
+  <ul class="flex flex-col font-mono text-xs tracking-tight p-4 gap-1">
+    <li>
+      <a
+        href="#about"
+        class="uppercase block py-3 px-2 border-b border-(--color-white-muted) text-(--color-neutral-content) hover:text-(--color-primary) transition-colors"
+        >About</a
+      >
+    </li>
+    <li>
+      <a
+        href="#experience"
+        class="uppercase block py-3 px-2 border-b border-(--color-white-muted) text-(--color-neutral-content) hover:text-(--color-primary) transition-colors"
+        >Experience</a
+      >
+    </li>
+    <li>
+      <a
+        href="#resume"
+        class="uppercase block py-3 px-2 text-(--color-neutral-content) hover:text-(--color-primary) transition-colors"
+        >Résumé</a
+      >
+    </li>
+  </ul>
+</nav>
+
+<!-- Backdrop -->
+<div id="nav-backdrop" class="lg:hidden fixed inset-0 z-30 bg-black/50 hidden">
+</div>
+
+<script>
+  function initNav() {
+    const toggle = document.getElementById('nav-toggle');
+    const nav = document.getElementById('mobile-nav');
+    const backdrop = document.getElementById('nav-backdrop');
+
+    if (!toggle || !nav || !backdrop) return;
+
+    const openNav = () => {
+      nav.style.maxHeight = nav.scrollHeight + 'px';
+      nav.setAttribute('aria-hidden', 'false');
+      toggle.setAttribute('aria-expanded', 'true');
+      backdrop.classList.remove('hidden');
+    };
+
+    const closeNav = () => {
+      nav.style.maxHeight = '0';
+      nav.setAttribute('aria-hidden', 'true');
+      toggle.setAttribute('aria-expanded', 'false');
+      backdrop.classList.add('hidden');
+    };
+
+    toggle.addEventListener('click', () => {
+      toggle.getAttribute('aria-expanded') === 'true' ? closeNav() : openNav();
+    });
+
+    backdrop.addEventListener('click', closeNav);
+    nav
+      .querySelectorAll('a')
+      .forEach((link) => link.addEventListener('click', closeNav));
+  }
+
+  initNav();
+</script>
