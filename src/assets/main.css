@@ -1,0 +1,83 @@
+@import 'tailwindcss';
+
+@theme inline {
+  /* Colors */
+  --color-base-100: #070708;
+  --color-base-200: #0f0f10;
+  --color-base-300: #1a1a1b;
+  --color-base-content: #f0f0e8;
+  --color-primary: #b8ff35;
+  --color-primary-content: #070708;
+  --color-accent: #ccff44;
+  --color-neutral: #0f0f10;
+  --color-neutral-content: oklch(0.95 0.01 106.35 / 0.72);
+  --color-white-muted: oklch(1 0 0 / 0.1);
+
+  /* Fonts */
+  --font-sans: var(--font-barlow);
+  --font-mono: var(--font-space-mono);
+  --font-display: var(--font-barlow-condensed);
+
+  /* Letter spacing */
+  --tracking-tighter: -0.01em;
+  --tracking-tight: 0.12em;
+  --tracking-normal: 0.1em;
+  --tracking-wide: 0.14em;
+  --tracking-wider: 0.18em;
+  --tracking-widest: 0.2em;
+}
+
+@layer base {
+  :root {
+    --color-base-100: #070708;
+    --color-base-200: #0f0f10;
+    --color-base-content: #f0f0e8;
+    --color-primary: #b8ff35;
+    --color-neutral-content: oklch(0.95 0.01 106.35 / 0.72);
+    --color-white-muted: oklch(1 0 0 / 0.1);
+  }
+
+  body {
+    background-color: var(--color-base-100);
+    color: var(--color-base-content);
+  }
+}
+
+@layer components {
+  .hero-name {
+    font-family: var(--font-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: clamp(80px, 13.5vw, 190px);
+    line-height: 0.86;
+    letter-spacing: -0.01em;
+    display: block;
+
+    .hero-name__outline {
+      color: transparent;
+      -webkit-text-stroke: 2px rgba(240, 240, 232, 0.5);
+    }
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.15;
+  }
+}
