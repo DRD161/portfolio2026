@@ -29,12 +29,15 @@
 
 @layer base {
   :root {
+    /* Only vars referenced via var() in CSS — not needed for Tailwind utility classes */
     --color-base-100: #070708;
     --color-base-200: #0f0f10;
     --color-base-content: #f0f0e8;
     --color-primary: #b8ff35;
     --color-neutral-content: oklch(0.95 0.01 106.35 / 0.72);
     --color-white-muted: oklch(1 0 0 / 0.1);
+    /* Used via var(--font-display) in .hero-name */
+    /* Resolved by Astro's Font system injecting --font-barlow-condensed at runtime */
   }
 
   body {
@@ -56,6 +59,22 @@
     .hero-name__outline {
       color: transparent;
       -webkit-text-stroke: 2px rgba(240, 240, 232, 0.5);
+    }
+  }
+
+  .scanline {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: repeating-linear-gradient(0deg,
+          transparent,
+          transparent 3px,
+          rgba(0, 0, 0, 0.08) 3px,
+          rgba(0, 0, 0, 0.08) 4px);
     }
   }
 }
