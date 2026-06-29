@@ -3,14 +3,14 @@ import barcode from '../assets/barcode.svg';
 ---
 
 <header
-  class="fixed top-0 inset-x-0 z-50 h-8 bg-(--color-base-200) border-b border-(--color-white-muted) flex items-stretch justify-between px-12 max-lg:px-4"
+  class="fixed top-0 inset-x-0 z-50 h-8 bg-base-200 border-b border-white-muted flex items-stretch justify-between px-12 max-lg:px-4"
 >
   <!-- Left: barcode + code -->
   <div class="flex items-center gap-4 font-mono text-xs">
     <!-- Hamburger — mobile only -->
     <button
       id="nav-toggle"
-      class="lg:hidden flex items-center justify-center w-8 h-full text-(--color-base-content)"
+      class="lg:hidden flex items-center justify-center w-8 h-full text-base-content"
       aria-label="Toggle menu"
       aria-expanded="false"
       aria-controls="mobile-nav"
@@ -38,21 +38,17 @@ import barcode from '../assets/barcode.svg';
   <!-- Right: desktop nav -->
   <div class="hidden lg:flex items-center gap-5">
     <div class="flex items-center gap-3">
-      <div class="w-1.5 h-1.5 rounded-full bg-(--color-primary) animate-pulse">
-      </div>
+      <div class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></div>
       <span
         class="uppercase font-mono text-xs tracking-wide text-base-content/60"
         >Online</span
       >
     </div>
 
-    <nav
-      class="flex items-stretch h-full border-l border-(--color-white-muted)"
-    >
-      <!-- Arrow icon -->
-      <div class="flex items-center px-4 border-r border-(--color-white-muted)">
+    <nav class="flex items-stretch h-full border-l border-white-muted">
+      <div class="flex items-center px-4 border-r border-white-muted">
         <svg
-          class="fill-(--color-primary) w-3"
+          class="fill-primary w-3"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 -960 960 960"
         >
@@ -65,40 +61,40 @@ import barcode from '../assets/barcode.svg';
         <li>
           <a
             href="#about"
-            class="uppercase text-(--color-neutral-content) hover:text-(--color-base-content) transition-colors"
+            class="uppercase text-neutral-content hover:text-base-content transition-colors"
             >About</a
           >
         </li>
         <li>
           <a
             href="#experience"
-            class="uppercase text-(--color-neutral-content) hover:text-(--color-base-content) transition-colors"
+            class="uppercase text-neutral-content hover:text-base-content transition-colors"
             >Experience</a
           >
         </li>
         <li>
           <a
             href="#resume"
-            class="uppercase text-(--color-neutral-content) hover:text-(--color-base-content) transition-colors"
+            class="uppercase text-neutral-content hover:text-base-content transition-colors"
             >Résumé</a
           >
         </li>
       </ul>
     </nav>
   </div>
+
+  <!-- Mobile: online indicator + arrow -->
   <div class="lg:hidden flex">
     <div class="flex items-center gap-3 mr-4">
-      <div class="w-1.5 h-1.5 rounded-full bg-(--color-primary) animate-pulse">
-      </div>
+      <div class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></div>
       <span
         class="uppercase font-mono text-xs tracking-wide text-base-content/60"
         >Online</span
       >
     </div>
-    <!-- Mobile arrow indicator -->
-    <div class="flex items-center pl-4 border-l border-(--color-white-muted)">
+    <div class="flex items-center pl-4 border-l border-white-muted">
       <svg
-        class="fill-(--color-primary) w-3"
+        class="fill-primary w-3"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 -960 960 960"
       >
@@ -113,28 +109,28 @@ import barcode from '../assets/barcode.svg';
 <!-- Mobile nav drawer -->
 <nav
   id="mobile-nav"
-  class="lg:hidden fixed top-8 inset-x-0 z-40 bg-(--color-base-200) border-b border-(--color-white-muted) overflow-hidden max-h-0 transition-[max-height] duration-300 ease-in-out"
+  class="lg:hidden fixed top-8 inset-x-0 z-40 bg-base-200 border-b border-white-muted overflow-hidden max-h-0 transition-[max-height] duration-300 ease-in-out"
   aria-hidden="true"
 >
   <ul class="flex flex-col font-mono text-xs tracking-tight p-4 gap-1">
     <li>
       <a
         href="#about"
-        class="uppercase block py-3 px-2 border-b border-(--color-white-muted) text-(--color-neutral-content) hover:text-(--color-primary) transition-colors"
+        class="uppercase block py-3 px-2 border-b border-white-muted text-neutral-content hover:text-primary transition-colors"
         >About</a
       >
     </li>
     <li>
       <a
         href="#experience"
-        class="uppercase block py-3 px-2 border-b border-(--color-white-muted) text-(--color-neutral-content) hover:text-(--color-primary) transition-colors"
+        class="uppercase block py-3 px-2 border-b border-white-muted text-neutral-content hover:text-primary transition-colors"
         >Experience</a
       >
     </li>
     <li>
       <a
         href="#resume"
-        class="uppercase block py-3 px-2 text-(--color-neutral-content) hover:text-(--color-primary) transition-colors"
+        class="uppercase block py-3 px-2 text-neutral-content hover:text-primary transition-colors"
         >Résumé</a
       >
     </li>
