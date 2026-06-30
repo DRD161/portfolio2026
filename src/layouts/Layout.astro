@@ -4,7 +4,7 @@ import { Font } from 'astro:assets';
 ---
 
 <!doctype html>
-<html lang="en" data-theme="future-neon">
+<html lang="en">
   <head>
     <Font cssVariable="--font-space-mono" />
     <Font cssVariable="--font-barlow" />
@@ -16,7 +16,7 @@ import { Font } from 'astro:assets';
     <meta name="generator" content={Astro.generator} />
     <title>Dylan's Portfolio</title>
   </head>
-  <body class="bg-primary-content">
+  <body class="bg-base-100 text-base-content">
     <main><slot /></main>
   </body>
 </html>
