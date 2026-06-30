@@ -1,10 +1,10 @@
 ---
-
+import InfoStrip from './InfoStrip.astro';
 ---
 
 <section id="home" class="pt-20">
   <div
-    class="flex justify-between font-mono text-xs tracking-wider mb-4 uppercase"
+    class="flex justify-between font-mono text-xs tracking-widest mb-4 uppercase"
   >
     <div class="text-primary">
       <span>SEC&middot;001</span>
@@ -13,7 +13,7 @@
       <span class="px-2 lg:px-4">//</span>
       <span>2026</span>
     </div>
-    <div class="flex tracking-tight">
+    <div class="flex tracking-wide">
       <p class="text-neutral-content before:content-['+'] before:text-primary">
         Virginia Beach, VA
       </p>
@@ -26,7 +26,7 @@
       +
     </div>
     <div
-      class="absolute -top-2 -right-3.5 font-mono leading-none text-primary-muted"
+      class="absolute -top-3.5 -right-2 font-mono leading-none text-primary-muted"
     >
       +
     </div>
@@ -47,4 +47,5 @@
       >
     </p>
   </div>
+  <InfoStrip />
 </section>
