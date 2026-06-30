@@ -7,6 +7,7 @@
   --color-base-300: #1a1a1b;
   --color-base-content: #f0f0e8;
   --color-primary: #b8ff35;
+  --color-primary-muted: oklch(0.92 0.23 128.04 / 0.3);
   --color-primary-content: #070708;
   --color-accent: #ccff44;
   --color-neutral: #0f0f10;
