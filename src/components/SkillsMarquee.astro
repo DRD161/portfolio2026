@@ -1,0 +1,89 @@
+---
+const skills = [
+  'HTML',
+  'CSS',
+  'JavaScript',
+  'TypeScript',
+  'React',
+  'Next.js',
+  'Vue',
+  'Nuxt.js',
+  'Node.js',
+  'C#',
+  '.NET',
+  'Git',
+  'UX',
+  'Figma',
+  'Design Systems',
+  'Accessibility'
+];
+---
+
+<div class="border-y border-primary-muted overflow-hidden py-2.5 w-full">
+  <div id="marquee-track" class="flex whitespace-nowrap">
+    <div id="marquee-inner" class="flex shrink-0">
+      {
+        skills.map((skill) => (
+          <p class="flex gap-5 font-mono font-bold text-[13px] tracking-normal shrink-0 pr-5 uppercase after:content-['x'] after:flex after:items-center after:text-primary-muted after:text-xs after:lowercase">
+            {skill}
+          </p>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<script>
+  function initMarquee() {
+    const track = document.getElementById('marquee-track');
+    const inner = document.getElementById('marquee-inner');
+    const isReducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)'
+    );
+    let prefersReducedMotion = isReducedMotion.matches;
+
+    if (!track || !inner) return;
+
+    const originalWidth = inner.offsetWidth;
+    const viewportWidth = window.innerWidth;
+
+    // Clone until content is at least 2x the viewport width
+    const clonesNeeded = Math.ceil((viewportWidth * 2) / originalWidth);
+
+    for (let i = 0; i < clonesNeeded; i++) {
+      const clone = inner.cloneNode(true) as HTMLElement;
+      clone.removeAttribute('id');
+      clone.setAttribute('aria-hidden', 'true');
+      track.appendChild(clone);
+    }
+
+    // Animate using the Web Animations API
+    if (!prefersReducedMotion) {
+      track.animate(
+        [
+          { transform: 'translateX(0)' },
+          { transform: `translateX(-${originalWidth}px)` }
+        ],
+        {
+          duration: 30000,
+          iterations: Infinity,
+          easing: 'linear'
+        }
+      );
+    } else {
+      track.animate(
+        [
+          { transform: 'translateX(0)' },
+          { transform: `translateX(-${originalWidth}px)` }
+        ],
+        {
+          duration: 60000,
+          iterations: Infinity,
+          easing: 'linear'
+        }
+      );
+    }
+  }
+
+  initMarquee();
+</script>
