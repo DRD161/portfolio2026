@@ -14,7 +14,12 @@ export default defineConfig({
         variants: [
           {
             src: ['./src/assets/fonts/SpaceMono-Regular.ttf'],
-            weight: 'normal',
+            weight: '400',
+            style: 'normal',
+          },
+          {
+            src: ['./src/assets/fonts/SpaceMono-Bold.ttf'],
+            weight: '700',
             style: 'normal',
           },
         ],
@@ -32,8 +37,8 @@ export default defineConfig({
             style: 'normal',
           },
           {
-            src: ['./src/assets/fonts/BarlowCondensed-Black.ttf'],
-            weight: '900',
+            src: ['./src/assets/fonts/BarlowCondensed-SemiBold.ttf'],
+            weight: '600',
             style: 'normal',
           },
           {
@@ -42,8 +47,8 @@ export default defineConfig({
             style: 'normal',
           },
           {
-            src: ['./src/assets/fonts/BarlowCondensed-SemiBold.ttf'],
-            weight: '600',
+            src: ['./src/assets/fonts/BarlowCondensed-Black.ttf'],
+            weight: '900',
             style: 'normal',
           },
         ],
