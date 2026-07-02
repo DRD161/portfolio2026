@@ -61,8 +61,8 @@
     background: repeating-linear-gradient(0deg,
         transparent,
         transparent 3px,
-        oklch(0 0 0 / 0.08) 3px,
-        oklch(0 0 0 / 0.08) 4px);
+        oklch(0 0 0 / 0.08) 5px,
+        oklch(0 0 0 / 0.08) 6px);
   }
 }
 
