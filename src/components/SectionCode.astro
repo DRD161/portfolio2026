@@ -1,0 +1,21 @@
+---
+interface Props {
+  sectionCode: string;
+  sectionTitle: string;
+}
+
+const { sectionCode, sectionTitle } = Astro.props;
+---
+
+<div class="flex items-center gap-4">
+  <p class="font-mono text-primary text-xs tracking-widest uppercase">
+    {sectionCode}
+  </p>
+  <p
+    class="font-display font-bold text-xs-2 tracking-widest-3 text-neutral-content uppercase"
+  >
+    {sectionTitle}
+  </p>
+  <div class="h-px flex-1 bg-white-muted"></div>
+  <div class="font-mono leading-none text-primary-muted">+</div>
+</div>
