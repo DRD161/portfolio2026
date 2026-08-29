@@ -21,6 +21,7 @@
 
   /* Typography Sizes */
   --text-sm: 0.9375rem;
+  --text-xs-2: 0.8125rem;
 
   /* Letter spacing */
   --tracking-tighter: -0.01em;
